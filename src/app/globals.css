@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e6e8ea;
   --foreground: #171717;
 }
 
@@ -11,11 +11,12 @@
 --color-text-on-button: #ffffff;
 
 --color-text-highlight: #8d8781;
---color-text-highlight-hover: #fcd34d;
+--color-text-highlight-hover: #fc7c4d;
   
 --color-bg-body: #ffffff;
 --color-bg-header: #4b362c;
 --color-bg-section-dark: #7f3b3b;
+--color-bg-section-light-brown: #8a7c67;
 --color-bg-section-blue: #334467;
 --color-bg-section-black: #222222;
 --color-bg-section-medium: #fdfdfd;
@@ -55,3 +56,38 @@ body {
   border-top: 32px solid #4a362c;
   margin-top: 0px;
 }
+
+#tilt-box-red {
+  width: 0;
+  height: 0;
+  border-left: 101vw solid transparent;
+  border-bottom: 40px solid #7e3b3b;
+  margin-bottom: 0px;
+}
+
+
+#tilt-box-blue {
+  width: 0;
+  height: 0;
+  border-left: 101vw solid transparent;
+  border-bottom: 40px solid #334366;
+  margin-bottom: 0px;
+}
+
+#tilt-box-brown {
+  width: 0;
+  height: 0;
+  border-left: 101vw solid transparent;
+  border-bottom: 40px solid #897b66;
+  margin-bottom: 0px;
+}
+#tilt-box-white {
+  width: 0;
+  height: 0;
+  border-left: 101vw solid transparent;
+  border-bottom: 32px solid #fbfbfb;
+  margin-bottom: -64px;
+}
+
+
+

@@ -110,7 +110,8 @@ const page: React.FC = () => {
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <img className="h-32 pt-7 -rotate-2" src="/Schilderschoolwit.png" alt="Schilderschool De Scheve Scheve Schilder"/>
+                <img className="h-32 pt-7 -rotate-2" src="/Schilderschoolwit.png"
+                     alt="Schilderschool De Scheve Scheve Schilder"/>
               </div>
 
               {/* Desktop Navigation */}
@@ -181,18 +182,23 @@ const page: React.FC = () => {
         </header>
 
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-[var(--color-bg-section-medium)] overflow-hidden">
+
+        <section className="relative py-20 md:py-32 bg-[var(--color-bg-body)] overflow-hidden pt-2">
           <div className="absolute inset-0 opacity-10">
-            <img src="https://placehold.co/1920x1080/334155/475569?text=Paint+Texture" alt="Paint Texture Background"
-                 className="w-full h-full object-cover"/>
+            {/*<img src="https://placehold.co/1920x1080/334155/475569?text=Paint+Texture" alt="Paint Texture Background"*/}
+            {/*     className="w-full h-full object-cover"/>*/}
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 className="text-sm sm:text-base text-[var(--color-text-highlight)] uppercase tracking-wider font-semibold">
-              - SCHILDERSCHOOL -
-            </h1>
-            <p className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--color-text-default)] leading-tight">
-              De Scheve Schilder
-            </p>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex-col ">
+            {/*<h1 className="text-sm sm:text-base text-[var(--color-bg-header)] uppercase tracking-wider font-semibold">*/}
+            {/*  - SCHILDERSCHOOL -*/}
+            {/*</h1>*/}
+            {/*<p className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--color-bg-header)] leading-tight">*/}
+            {/*  De Scheve Schilder*/}
+            {/*</p>*/}
+
+            <div className="flex justify-center items-center h-[45vh] -mt-30">
+              <img className="max-h-full" src="/scheveschildersign.png" alt="Scheve Schilder Sign"/>
+            </div>
             <p className="mt-6 text-xl sm:text-2xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
               Iedereen kan leren Tekenen & Schilderen 🖌️
             </p>
@@ -209,8 +215,9 @@ const page: React.FC = () => {
         </section>
 
         {/* Image Gallery Section */}
+        <div id="tilt-box-red"/>
         <section id="school" className="py-16 bg-[var(--color-bg-section-dark)]">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
                 className="relative w-full max-w-3xl mx-auto h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
               {galleryImages.map((src, index) => (
@@ -234,13 +241,14 @@ const page: React.FC = () => {
               ))}
             </div>
           </div>
+          <div id="tilt-box-white" className="mb-2"></div>
         </section>
 
         {/* Intro Text Section */}
         <section className="py-16 bg-[var(--color-bg-section-medium)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              <div className="md:w-1/2">
+              <div className="md:w-1/2 ml-30">
                 <img
                     src="https://placehold.co/600x400/4A5568/FFFFFF?text=Artist+Sketching"
                     alt="Artist sketching"
@@ -249,7 +257,7 @@ const page: React.FC = () => {
                 />
               </div>
               <div className="md:w-1/2 text-center md:text-left">
-                <h2 className="text-3xl font-bold text-[var(--color-text-default)] sm:text-4xl">
+                <h2 className="text-3xl font-bold text-[var(--color-bg-header)] sm:text-4xl">
                   Schilderles & Tekenles bij <br className="hidden sm:inline"/>Schilderschool De Scheve Schilder
                 </h2>
                 <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
@@ -268,12 +276,13 @@ const page: React.FC = () => {
         </section>
 
         {/* Class Times & Map Section */}
-        <section className="py-16 bg-[var(--color-bg-section-dark)]">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="tilt-box-blue" className="mb-2"></div>
+        <section className="py-16 bg-[var(--color-bg-section-blue)]">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Class Times */}
-              <div className="bg-[var(--color-bg-section-medium)] p-6 sm:p-8 rounded-lg shadow-xl">
-                <h3 className="text-2xl font-semibold text-[var(--color-text-default)] mb-6 text-center">Les Tijden</h3>
+              <div className="bg-[var(--color-bg-section-medium)] p-6 sm:p-8 ml-32 rounded-lg shadow-xl">
+                <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-6 text-center">Les Tijden</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
                     <span className="text-lg text-[var(--color-text-muted)]">Woensdag Avond:</span>
@@ -289,12 +298,13 @@ const page: React.FC = () => {
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--color-text-subtle)] text-center">
-                  Locatie: Cultuurhuis De Kolk (ruimte 2), Weerweg 32, Lutjewinkel
+                  Locatie: Cultuurhuis De Kolk (ruimte 2), Weereweg 32, Lutjewinkel
                 </p>
+
               </div>
 
               {/* Map Placeholder */}
-              <div className="rounded-lg shadow-xl overflow-hidden h-80 md:h-full">
+              <div className="rounded-lg shadow-xl overflow-hidden h-80 md:h-full mr-32">
                 <img
                     src="https://placehold.co/600x400/A0AEC0/FFFFFF?text=Map+of+Lutjewinkel+showing+Cultuurhuis+De+Kolk"
                     alt="Kaart van Lutjewinkel met locatie Cultuurhuis De Kolk"
@@ -304,6 +314,7 @@ const page: React.FC = () => {
               </div>
             </div>
           </div>
+          <div id="tilt-box-white"/>
         </section>
 
         {/* About Section */}
@@ -343,7 +354,8 @@ const page: React.FC = () => {
         </section>
 
         {/* FAQ Section */}
-        <section id="programma" className="py-16 bg-[var(--color-bg-section-dark)]">
+        <div id="tilt-box-brown" className="mb-2"></div>
+        <section id="programma" className="py-16 bg-[var(--color-bg-section-light-brown)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
             <h2 className="text-3xl font-bold text-[var(--color-text-default)] sm:text-4xl text-center mb-10">
               Veel gestelde vragen
@@ -357,7 +369,7 @@ const page: React.FC = () => {
         </section>
 
         {/* Footer */}
-        <footer id="contact" className="bg-[var(--color-bg-header)] text-[var(--color-text-subtle)] py-12">
+        <footer id="contact" className="bg-[var(--color-bg-section-black)] text-[var(--color-text-default)] py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
@@ -392,8 +404,7 @@ const page: React.FC = () => {
               </div>
             </div>
             <div className="mt-8 border-t border-[var(--color-border-default)] pt-8 text-center text-sm">
-              <p>&copy; {new Date().getFullYear()} De Scheve Schilder. Alle rechten voorbehouden.</p>
-              <p className="mt-1">Ontworpen met ❤️ voor kunst.</p>
+              <p>&copy; {new Date().getFullYear()} SchilderSchool De Scheve Schilder</p>
             </div>
           </div>
         </footer>
