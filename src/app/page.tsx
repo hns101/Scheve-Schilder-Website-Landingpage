@@ -103,52 +103,53 @@ const page: React.FC = () => {
   return (
       <div className="bg-[var(--color-bg-body)] text-[var(--color-text-default)] font-sans min-h-screen">
         {/* Header */}
-        <header className=" sticky top-0 z-50">
+        <header className=" sticky top-0 z-50 ">
 
-          <div className="container mx-auto px-3 sm:px-6 lg:px-8 bg-[var(--color-bg-header)] bg-opacity-80">
+          <div className="bg-[var(--color-bg-header)] bg-opacity-80">
 
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <img className="h-32 pt-7 -rotate-2" src="/Schilderschoolwit.png"
+            {/* Apply flex and justify-between here */}
+            <div
+                className="container mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16"> {/* <-- MODIFIED LINE */}
+
+              {/* 1. Logo (Stays on the Left) */}
+              <div className="flex-shrink-0 relative z-20">
+                <img className="h-32 pt-7 -rotate-2 " src="/Schilderschoolwit.png"
                      alt="Schilderschool De Scheve Scheve Schilder"/>
               </div>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex space-x-4 ">
-                {navLinks.map(link => (
-                    <a key={link.href} href={link.href}
-                       className="text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">
-                      {link.text}
-                    </a>
-                ))}
-              </nav>
+              {/* 2. Container for Right-Side Elements */}
+              <div className="flex items-center"> {/* <-- NEW WRAPPER */}
 
-              {/*/!* Contact Info - Desktop *!/*/}
-              {/*<div className="hidden md:flex items-center space-x-4 text-sm">*/}
-              {/*  <a href="tel:0612345678"*/}
-              {/*     className="flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)]">*/}
-              {/*    <PhoneIcon/> <span className="ml-2">06 12345678</span>*/}
-              {/*  </a>*/}
-              {/*  <a href="mailto:info@descheveschilder.nl"*/}
-              {/*     className="flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)]">*/}
-              {/*    <MailIcon/> <span className="ml-2">info@descheveschilder.nl</span>*/}
-              {/*  </a>*/}
-              {/*</div>*/}
+                {/* Desktop Navigation (Pushed to the Right) */}
+                <nav className="hidden md:flex space-x-4 ">
+                  {navLinks.map(link => (
+                      <a key={link.href} href={link.href}
+                         className="text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                        {link.text}
+                      </a>
+                  ))}
+                </nav>
 
-              {/* Mobile Menu Button */}
-              <div className="md:hidden">
-                <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-focus-ring)] p-2 rounded-md"
-                >
-                  <MenuIcon/>
-                </button>
+                {/* Mobile Menu Button (Pushed to the Right) */}
+                <div className="md:hidden">
+                  <button
+                      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                      className="text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-focus-ring)] p-2 rounded-md"
+                  >
+                    <MenuIcon/>
+                  </button>
+                </div>
+
               </div>
-            </div>
-          </div>
+              {/* <-- End of NEW WRAPPER */}
 
-          {/* Mobile Menu */}
+            </div>
+            {/* <-- Close flex container */}
+
+          </div>
+          {/* <-- Close background div */}
+
+          {/* Mobile Menu (This structure looks fine, it appears below when open) */}
           {isMobileMenuOpen && (
               <div className="md:hidden bg-[var(--color-bg-header)] ">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -159,25 +160,9 @@ const page: React.FC = () => {
                       </a>
                   ))}
                 </div>
-                {/*<div className="pt-4 pb-3 border-t border-[var(--color-border-default)]">*/}
-                {/*  /!*<div className="flex items-center px-5 space-x-2">*!/*/}
-                {/*  /!*  <PhoneIcon/>*!/*/}
-                {/*  /!*  <a href="tel:0612345678"*!/*/}
-                {/*  /!*     className="text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)]">06*!/*/}
-                {/*  /!*    12345678</a>*!/*/}
-                {/*  /!*</div>*!/*/}
-                {/*  /!*<div className="mt-3 flex items-center px-5 space-x-2">*!/*/}
-                {/*  /!*  <MailIcon/>*!/*/}
-                {/*  /!*  <a href="mailto:info@descheveschilder.nl"*!/*/}
-                {/*  /!*     className="text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)]">info@descheveschilder.nl</a>*!/*/}
-                {/*  /!*</div>*!/*/}
-                {/*  /!*<div className="mt-3 flex items-center px-5 space-x-2">*!/*/}
-                {/*  /!*  <MapPinIcon/>*!/*/}
-                {/*  /!*  <span className="text-[var(--color-text-muted)]">Weverweg 32, Lutjewinkel</span>*!/*/}
-                {/*  /!*</div>*!/*/}
-                {/*</div>*/}
               </div>
           )}
+          {/* Your tilt box (Assuming it stays here) */}
           <div id="tilt-box" className="mb-2"></div>
         </header>
 
@@ -216,7 +201,7 @@ const page: React.FC = () => {
 
         {/* Image Gallery Section */}
         <div id="tilt-box-red"/>
-        <section id="school" className="py-16 bg-[var(--color-bg-section-dark)]">
+        <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
                 className="relative w-full max-w-3xl mx-auto h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
@@ -277,7 +262,7 @@ const page: React.FC = () => {
 
         {/* Class Times & Map Section */}
         <div id="tilt-box-blue" className="mb-2"></div>
-        <section className="py-16 bg-[var(--color-bg-section-blue)]">
+        <section className="py-16 pb-0 bg-[var(--color-bg-section-blue)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Class Times */}

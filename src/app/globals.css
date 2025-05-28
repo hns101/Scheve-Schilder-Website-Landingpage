@@ -49,45 +49,61 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* --- Remove ALL old #tilt-box-* styles first --- */
+
+/* Base for all tilt boxes */
+#tilt-box, #tilt-box-red, #tilt-box-white, #tilt-box-blue, #tilt-box-brown {
+  width: 100%;
+  display: block; /* Ensure it's treated as a block */
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: -1px; /* << --- KEY CHANGE: Standardized overlap method */
+  padding: 0;
+  line-height: 0; /* Helps prevent accidental height issues */
+  position: relative; /* Good practice for positioning context if needed later */
+  z-index: 5; /* Ensure they sit above sections below, but below header/content */
+}
+
+/* Slanting Down-Left (Header's, White one) */
 #tilt-box {
-  width: 0;
-  height: 0;
-  border-right: 101vw solid transparent;
-  border-top: 32px solid #4a362c;
-  margin-top: 0px;
+  height: 32px; /* Adjust height if needed */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+#tilt-box-white {
+  height: 32px; /* Adjust height if needed */
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0);
+}
+
+#tilt-box {
+  background-color: var(--color-bg-header);
+}
+
+#tilt-box-white {
+  background-color: #fbfbfb; /* White - from var(--color-bg-section-medium) */
+  /* REMOVED the -64px margin. We're using -1px now. */
+  /* If #tilt-box-white needs a different margin, adjust here, */
+  /* but start with -1px. */
+}
+
+/* Slanting Down-Right (Red, Blue, Brown) */
+#tilt-box-red,
+#tilt-box-blue,
+#tilt-box-brown {
+  height: 40px; /* Adjust height if needed */
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0);
 }
 
 #tilt-box-red {
-  width: 0;
-  height: 0;
-  border-left: 101vw solid transparent;
-  border-bottom: 40px solid #7e3b3b;
-  margin-bottom: 0px;
+  background-color: #7e3b3b; /* var(--color-bg-section-dark) */
 }
 
-
 #tilt-box-blue {
-  width: 0;
-  height: 0;
-  border-left: 101vw solid transparent;
-  border-bottom: 40px solid #334366;
-  margin-bottom: 0px;
+  background-color: #334366; /* var(--color-bg-section-blue) */
 }
 
 #tilt-box-brown {
-  width: 0;
-  height: 0;
-  border-left: 101vw solid transparent;
-  border-bottom: 40px solid #897b66;
-  margin-bottom: 0px;
+  background-color: #897b66; /* var(--color-bg-section-light-brown) */
 }
-#tilt-box-white {
-  width: 0;
-  height: 0;
-  border-left: 101vw solid transparent;
-  border-bottom: 32px solid #fbfbfb;
-  margin-bottom: -64px;
-}
-
-
 
