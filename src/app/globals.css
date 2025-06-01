@@ -5,6 +5,20 @@
   --foreground: #171717;
 }
 
+/* Standaard voor de meeste browsers (Chrome, Safari, Edge, etc.) */
+::selection {
+  background-color: #4a362c; /* De achtergrondkleur van de selectie */
+  color: #fbfbfb;            /* De kleur van de geselecteerde tekst */
+  text-shadow: none;        /* Optioneel: verwijdert eventuele tekstschaduw */
+}
+
+/* Voor Firefox-compatibiliteit */
+::-moz-selection {
+  background-color: #4a362c; /* De achtergrondkleur van de selectie */
+  color: #fbfbfb;           /* Moet dezelfde kleur zijn */
+  text-shadow: none;        /* Optioneel: verwijdert eventuele tekstschaduw */
+}
+
 @theme {
 --color-button-primary-bg: #dd8e33;
 --color-button-primary-bg-hover: #e39e4f;

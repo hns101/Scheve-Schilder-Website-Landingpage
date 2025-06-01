@@ -56,16 +56,21 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
       <div className="border-b border-[var(--color-border-default)] py-4">
         <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex justify-between items-center w-full text-left text-lg text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] transition-colors duration-300"
+            className="flex justify-between items-center w-full text-left text-lg text-[var(--color-text-default)] hover:text-[#e3e3e3] transition-colors duration-300"
         >
-          <span className="pr-4">{question}</span>
-          <ChevronDownIcon />
+          {/* De vraag wordt nu alleen dikgedrukt als hij open is */}
+          <span className={`pr-4 ${isOpen ? 'font-bold' : ''}`}>
+            {question}
+          </span>
+          <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+            <ChevronDownIcon />
+          </div>
         </button>
-        {isOpen && <div className="mt-4 text-[var(--color-text-muted)] pr-6 space-y-3">{answer}</div>}
+        {/* De kleur van de antwoordtekst is hier aangepast */}
+        {isOpen && <div className="mt-4 text-[var(--color-text-default)] pr-6 space-y-3">{answer}</div>}
       </div>
   );
 };
-
 
 const page: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -88,16 +93,46 @@ const page: React.FC = () => {
 
   const faqData = [
     {
+      question: "Wat kan ik hier leren?",
+      answer: (
+          <p>Bij ons leer je de technieken van het realistisch tekenen en schilderen. We bieden een doordachte mix van gestructureerde lessen en persoonlijke projecten, volledig gericht op jouw ontwikkeling. Daarnaast krijg je deskundige begeleiding bij het uitwerken van je eigen creatieve ideeën.</p>
+      )
+    },
+    {
+      question: "Wat kosten de lessen?",
+      answer: (
+          <>
+            <p>De kosten zijn opgebouwd uit een maandelijks lidmaatschap en eenmalige inschrijfkosten.</p>
+            <ul className="list-disc list-inside space-y-1 my-2">
+              <li><strong>Lidmaatschap:</strong> € 64,- per maand.</li>
+              <li><strong>Inschrijfkosten:</strong> € 5,- (eenmalig).</li>
+            </ul>
+
+            <h4 className="font-semibold text-lg text-[var(--color-text-default)] pt-2">Betaling</h4>
+            <p>Betaling verloopt eenvoudig via automatische incasso. Het lesgeld wordt maandelijks rond de 11e van de maand afgeschreven.</p>
+
+            <h4 className="font-semibold text-lg text-[var(--color-text-default)] pt-2">Flexibiliteit</h4>
+            <p>Je zit nergens aan vast. Het lidmaatschap is per maand opzegbaar, dus je hebt volledige flexibiliteit.</p>
+          </>
+      )
+    },
+    {
       question: "Wat heb ik nodig voor de les?",
-      answer: "Voor je eerste les hoef je niets mee te nemen; wij zorgen voor alle benodigde basismaterialen. Na een paar lessen kijken we samen wat voor jou handig is om zelf aan te schaffen. Het werken met eigen, vertrouwde materialen is immers een belangrijk onderdeel van je artistieke ontwikkeling."
+      answer: (
+          <p>Voor je eerste les hoef je niets mee te nemen; wij zorgen voor alle benodigde basismaterialen. Na een paar lessen kijken we samen wat voor jou handig is om zelf aan te schaffen. Het werken met eigen, vertrouwde materialen is immers een belangrijk onderdeel van je artistieke ontwikkeling.</p>
+      )
     },
     {
       question: "Voor wie zijn de lessen?",
-      answer: "Onze lessen richten zich op volwassenen die de kunst van het realistisch tekenen en schilderen willen leren. Passie voor het vak staat voorop, dus iedereen die gemotiveerd is, is van harte welkom. De lesmethode is ontwikkeld voor een volwassen publiek, maar leergierige talenten van andere leeftijden sluiten we niet uit."
+      answer: (
+          <p>Onze lessen richten zich op volwassenen die de kunst van het realistisch tekenen en schilderen willen leren. Passie voor het vak staat voorop, dus iedereen die gemotiveerd is, is van harte welkom. De lesmethode is ontwikkeld voor een volwassen publiek, maar leergierige talenten van andere leeftijden sluiten we niet uit.</p>
+      )
     },
     {
       question: "Moet ik mijn eigen spullen meenemen?",
-      answer: "Om je een goede start te geven, zorgen wij voor de benodigde basismaterialen, zeker tijdens de eerste lessen. Na verloop van tijd werkt het echter prettiger en leer je meer als je met je eigen, vertrouwde materialen werkt. We moedigen je daarom aan om op den duur je eigen set samen te stellen."
+      answer: (
+          <p>Om je een goede start te geven, zorgen wij voor de benodigde basismaterialen, zeker tijdens de eerste lessen. Na verloop van tijd werkt het echter prettiger en leer je meer als je met je eigen, vertrouwde materialen werkt. We moedigen je daarom aan om op den duur je eigen set samen te stellen.</p>
+      )
     },
     {
       question: "Thema- & Projectles?",
@@ -115,7 +150,9 @@ const page: React.FC = () => {
     },
     {
       question: "Kan ik een gemiste les inhalen?",
-      answer: "Ja, dat is vaak mogelijk. Mocht je een keer niet kunnen, laat het ons dan tijdig weten. In overleg zoeken we dan samen naar een geschikt moment om de les in te halen, afhankelijk van de beschikbare plekken in de andere lesgroepen."
+      answer: (
+          <p>Jazeker, een gemiste les inhalen is mogelijk. Je kunt de les inhalen binnen twee weken na de oorspronkelijke lesdatum. In overleg met ons kun je dan op een ander tijdstip een extra les bijwonen, afhankelijk van de beschikbare plekken in de andere lesgroepen.</p>
+      )
     }
   ];
 
@@ -393,7 +430,7 @@ const page: React.FC = () => {
             <h2 className="text-3xl font-bold text-[var(--color-text-default)] sm:text-4xl text-center mb-10">
               Veel gestelde vragen
             </h2>
-            <div className="space-y-2">
+            <div className="space-y-2 ">
               {faqData.map((item, index) => (
                   <FAQItem key={index} question={item.question} answer={item.answer}/>
               ))}
