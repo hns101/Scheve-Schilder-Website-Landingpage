@@ -46,7 +46,7 @@ const ChevronRightIcon = () => (
 
 interface FAQItemProps {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
@@ -58,10 +58,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex justify-between items-center w-full text-left text-lg text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] transition-colors duration-300"
         >
-          <span>{question}</span>
+          <span className="pr-4">{question}</span>
           <ChevronDownIcon />
         </button>
-        {isOpen && <p className="mt-3 text-[var(--color-text-muted)] pr-6">{answer}</p>}
+        {isOpen && <div className="mt-4 text-[var(--color-text-muted)] pr-6 space-y-3">{answer}</div>}
       </div>
   );
 };
@@ -87,11 +87,36 @@ const page: React.FC = () => {
   }, [galleryImages.length]);
 
   const faqData = [
-    { question: "Wat heb ik nodig voor de les?", answer: "Voor de eerste les hoef je niets mee te nemen. We voorzien je van basismaterialen. Voor vervolglessen bespreken we samen wat handig is om aan te schaffen." },
-    { question: "Voor wie zijn de lessen?", answer: "De lessen zijn voor iedereen, van absolute beginner tot gevorderde. Plezier in schilderen staat voorop!" },
-    { question: "Moet ik mijn eigen spullen mee nemen?", answer: "Voor de proefles niet. Daarna is het aan te raden om je eigen vertrouwde materialen te gebruiken, maar we hebben ook materiaal beschikbaar." },
-    { question: "Thema les & Project les?", answer: "We bieden zowel themalessen aan waarin specifieke technieken of onderwerpen centraal staan, als projectlessen waarin je aan je eigen werkstukken werkt met begeleiding." },
-    { question: "Les inhalen mogelijk?", answer: "In overleg is het vaak mogelijk om een gemiste les op een ander moment in te halen, mits er plek is in een andere groep." },
+    {
+      question: "Wat heb ik nodig voor de les?",
+      answer: "Voor je eerste les hoef je niets mee te nemen; wij zorgen voor alle benodigde basismaterialen. Na een paar lessen kijken we samen wat voor jou handig is om zelf aan te schaffen. Het werken met eigen, vertrouwde materialen is immers een belangrijk onderdeel van je artistieke ontwikkeling."
+    },
+    {
+      question: "Voor wie zijn de lessen?",
+      answer: "Onze lessen richten zich op volwassenen die de kunst van het realistisch tekenen en schilderen willen leren. Passie voor het vak staat voorop, dus iedereen die gemotiveerd is, is van harte welkom. De lesmethode is ontwikkeld voor een volwassen publiek, maar leergierige talenten van andere leeftijden sluiten we niet uit."
+    },
+    {
+      question: "Moet ik mijn eigen spullen meenemen?",
+      answer: "Om je een goede start te geven, zorgen wij voor de benodigde basismaterialen, zeker tijdens de eerste lessen. Na verloop van tijd werkt het echter prettiger en leer je meer als je met je eigen, vertrouwde materialen werkt. We moedigen je daarom aan om op den duur je eigen set samen te stellen."
+    },
+    {
+      question: "Thema- & Projectles?",
+      answer: (
+          <>
+            <p>Onze lessen hebben een unieke, afwisselende opzet. Je volgt wekelijks les, waarbij we een themales en een projectles om en om aanbieden. Zo combineer je gerichte instructie met creatieve vrijheid.</p>
+
+            <h4 className="font-semibold text-lg text-[var(--color-text-default)] pt-2">De Themales: Techniek en Inspiratie</h4>
+            <p>Tijdens de themales staat er elke keer een specifieke techniek of een inspirerend onderwerp centraal. In groepsverband werk je onder begeleiding aan een gerichte opdracht. Dit is de perfecte manier om stap voor stap nieuwe vaardigheden te leren en je technische basis te versterken.</p>
+
+            <h4 className="font-semibold text-lg text-[var(--color-text-default)] pt-2">De Projectles: Jouw Artistieke Vrijheid</h4>
+            <p>In de projectles krijg je de vrijheid om aan je eigen schilder- of tekenproject te werken. Het doel is het ontwikkelen van jouw persoonlijke stijl en creatieve visie. Je kiest zelf je onderwerp en aanpak, en wij bieden individuele begeleiding om je te helpen bij jouw artistieke zoektocht. Weet je even niet waar je moet beginnen? Dan hebben we diverse startprojecten voor je klaarliggen.</p>
+          </>
+      )
+    },
+    {
+      question: "Kan ik een gemiste les inhalen?",
+      answer: "Ja, dat is vaak mogelijk. Mocht je een keer niet kunnen, laat het ons dan tijdig weten. In overleg zoeken we dan samen naar een geschikt moment om de les in te halen, afhankelijk van de beschikbare plekken in de andere lesgroepen."
+    }
   ];
 
   const navLinks = [
@@ -168,25 +193,27 @@ const page: React.FC = () => {
 
         {/* Hero Section */}
 
-        <section className="relative py-20 md:py-32 bg-[var(--color-bg-body)] overflow-hidden pt-2">
+        <section id="hero-banner" className="relative py-0 md:py-0 bg-[var(--color-bg-body)] overflow-hidden pt-0">
           <div className="absolute inset-0 opacity-10">
             {/*<img src="https://placehold.co/1920x1080/334155/475569?text=Paint+Texture" alt="Paint Texture Background"*/}
-            {/*     className="w-full h-full object-cover"/>*/}
+            {/* className="w-full h-full object-cover"/>*/}
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex-col ">
             {/*<h1 className="text-sm sm:text-base text-[var(--color-bg-header)] uppercase tracking-wider font-semibold">*/}
-            {/*  - SCHILDERSCHOOL -*/}
+            {/* - SCHILDERSCHOOL -*/}
             {/*</h1>*/}
             {/*<p className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--color-bg-header)] leading-tight">*/}
-            {/*  De Scheve Schilder*/}
+            {/* De Scheve Schilder*/}
             {/*</p>*/}
 
-            <div className="flex justify-center items-center h-[45vh] -mt-30">
+            <div className="flex justify-center items-center h-[45vh] mt-10">
               <img className="max-h-full" src="/scheveschildersign.png" alt="Scheve Schilder Sign"/>
             </div>
-            <p className="mt-6 text-xl sm:text-2xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
-              Iedereen kan leren Tekenen & Schilderen 🖌️
-            </p>
+            {/* To make the <p> take up the full width, remove max-w-2xl and mx-auto */}
+
+            {/*<p className="mt-6 py-4 pb-32 -mb-21 bg-[var(--line-background-color)] text-xl font-bold sm:text-2xl text-[var(--color-text-default)] w-screen relative left-1/2 -translate-x-1/2 z-0">*/}
+            {/* Iedereen kan leren Tekenen & Schilderen️*/}
+            {/*</p>*/}
             <div className="mt-10">
               <a
                   href="#inschrijven"
@@ -198,9 +225,25 @@ const page: React.FC = () => {
           </div>
 
         </section>
-
+        <div id="tilt-box-black-top"/>
+        <div className="marquee-wrapper">
+          <div className="marquee-container">
+            <div className="marquee-content">
+      <span>
+        Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+          className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+          className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+          className="highlight">Tekenen & Schilderen</strong>   </span>
+              <span>
+        Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong>   </span>
+            </div>
+          </div>
+        </div>
         {/* Image Gallery Section */}
-        <div id="tilt-box-red"/>
+        <div id="tilt-box-red-top"/>
         <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
@@ -288,15 +331,20 @@ const page: React.FC = () => {
 
               </div>
 
-              {/* Map Placeholder */}
               <div className="rounded-lg shadow-xl overflow-hidden h-80 md:h-full mr-32">
-                <img
-                    src="https://placehold.co/600x400/A0AEC0/FFFFFF?text=Map+of+Lutjewinkel+showing+Cultuurhuis+De+Kolk"
-                    alt="Kaart van Lutjewinkel met locatie Cultuurhuis De Kolk"
-                    className="w-full h-full object-cover"
-                    onError={(e) => (e.currentTarget.src = "https://placehold.co/600x400/CCCCCC/FFFFFF?text=Map+Not+Available")}
-                />
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1748765405671!6m8!1m7!1svic1ch9VXt-XXkBcofWzvA!2m2!1d52.76878390910724!2d4.883859254183673!3f53.6922652442899!4f6.295963732094151!5f1.5370213448934535"
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Locatie van Cultuurhuis De Kolk"
+                    className="w-full h-full"
+                ></iframe>
               </div>
+
             </div>
           </div>
           <div id="tilt-box-white"/>
@@ -389,7 +437,7 @@ const page: React.FC = () => {
               </div>
             </div>
             <div className="mt-8 border-t border-[var(--color-border-default)] pt-8 text-center text-sm">
-              <p>&copy; {new Date().getFullYear()} SchilderSchool De Scheve Schilder</p>
+              <p>© {new Date().getFullYear()} SchilderSchool De Scheve Schilder</p>
             </div>
           </div>
         </footer>

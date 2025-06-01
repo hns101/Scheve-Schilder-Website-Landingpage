@@ -28,7 +28,7 @@
 
 --color-border-default: #374151;            
 --color-border-muted: #070707;
-
+--line-background-color: rgb(138, 124, 103); /* var(--color-bg-section-light-brown) */
 --color-focus-ring: #ffffff;
 
 --color-gallery-dot: #6b7280;              
@@ -52,13 +52,11 @@ body {
 /* --- Remove ALL old #tilt-box-* styles first --- */
 
 /* Base for all tilt boxes */
-#tilt-box, #tilt-box-red, #tilt-box-white, #tilt-box-blue, #tilt-box-brown {
+#tilt-box, #tilt-box-red, #tilt-box-red-top, #tilt-box-black-top ,#tilt-box-white, #tilt-box-blue, #tilt-box-brown {
   width: 100%;
   display: block; /* Ensure it's treated as a block */
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: -1px; /* << --- KEY CHANGE: Standardized overlap method */
+  /* << --- KEY CHANGE: Standardized overlap method */
+  margin: 0 0 -1px 0;
   padding: 0;
   line-height: 0; /* Helps prevent accidental height issues */
   position: relative; /* Good practice for positioning context if needed later */
@@ -89,13 +87,15 @@ body {
 
 /* Slanting Down-Right (Red, Blue, Brown) */
 #tilt-box-red,
+#tilt-box-red-top,
+#tilt-box-black-top,
 #tilt-box-blue,
 #tilt-box-brown {
   height: 40px; /* Adjust height if needed */
   clip-path: polygon(0% 100%, 100% 100%, 100% 0);
 }
 
-#tilt-box-red {
+#tilt-box-red, #tilt-box-red-top{
   background-color: #7e3b3b; /* var(--color-bg-section-dark) */
 }
 
@@ -104,6 +104,77 @@ body {
 }
 
 #tilt-box-brown {
-  background-color: #897b66; /* var(--color-bg-section-light-brown) */
+  background-color: #897b66;
+}
+#tilt-box-red-top {
+  margin-top: -39px;
 }
 
+#tilt-box-black-top {
+  margin-top: -39px;
+  background-color: #222222;
+}
+
+#hero-banner {
+  margin-top: -32px;
+  background-image: url('./../../public/classroom.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden; /* This HIDES the text outside the viewport */
+  position: relative; /* Needed for positioning */
+  padding: 0px 0 40px 0; /* Add vertical space */
+  background-color: #222222; /* Optional: background for the band */
+}
+
+.marquee-container {
+  /* Apply the tilt here */
+  transform: rotate(220deg); /* Adjust angle as needed */
+
+  /* Make it wider than the screen to avoid gaps when tilted */
+  width: 120%;
+  position: relative;
+  left: -10%; /* Center the wider container */
+
+  display: flex; /* Allows content to sit side-by-side */
+  white-space: nowrap; /* Prevents text from wrapping */
+
+  /* Define the animation */
+  animation: scroll-left 80s linear infinite;
+}
+
+.marquee-content {
+  display: flex; /* Keep spans side-by-side */
+}
+
+.marquee-container span {
+  font-size: 4rem; /* Adjust size */
+  font-weight: bold;
+  color: #ffffff; /* Lighter blue color */
+  text-transform: uppercase;
+  padding: 0 1em; /* Add space between 'WE NEED YOU' */
+  white-space: nowrap; /* Ensure spans don't wrap internally */
+}
+
+.marquee-container .highlight {
+  color: #222222; /* Darker blue color */
+  font-weight: 900;
+  -webkit-text-stroke: 2px white;/* Even bolder */
+}
+
+/* Define the scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  50% {
+    transform: translateX(-50%); /* End position (move left by width of ONE span) */
+  }
+  100% {
+    transform: translateX(0); /* End position (move left by width of ONE span) */
+  }
+}
