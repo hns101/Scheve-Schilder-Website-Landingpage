@@ -80,11 +80,17 @@ const page: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const galleryImages = [
-    "https://placehold.co/600x400/7F8C8D/FFFFFF?text=Painting+Class+1",
-    "https://placehold.co/600x400/95A5A6/FFFFFF?text=Artwork+Example+2",
-    "https://placehold.co/600x400/BDC3C7/FFFFFF?text=Students+Painting+3",
-    "https://placehold.co/600x400/7F8C8D/FFFFFF?text=Close-up+Brush+4",
-    "https://placehold.co/600x400/95A5A6/FFFFFF?text=Finished+Piece+5",
+    "/gallery/scheve-studio.jpg",
+    "/gallery/metaal-study.jpg",
+    "/gallery/botanische-bloem.jpg",
+    "/gallery/drawing-bargue.jpg",
+    "/gallery/David-Eye-Oilpaint.jpg",
+    "/gallery/meester-study.jpg",
+    "/gallery/gezichten-tekenen.jpg",
+    "/gallery/monkey-study.jpg",
+    "/gallery/hond.jpg",
+    "/gallery/bloem-study.jpg",
+    "/gallery/glas-study.jpg",
   ];
 
   useEffect(() => {
@@ -181,7 +187,7 @@ const page: React.FC = () => {
                 <nav className="hidden md:flex space-x-4 ">
                   {navLinks.map(link => (
                       <a key={link.href} href={link.href}
-                         className="relative text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-[2px] after:bg-[var(--color-text-highlight)] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">
+                         className="relative text-[var(--color-text-default)] hover:text-[var(--color-text-default)] px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-[2px] after:bg-[var(--color-text-highlight)] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">
                         {link.text}
                       </a>
                   ))}
@@ -190,7 +196,7 @@ const page: React.FC = () => {
                 <div className="md:hidden">
                   <button
                       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                      className="text-[var(--color-text-muted)] hover:text-[var(--color-text-highlight)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-focus-ring)] p-2 rounded-md"
+                      className="text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-focus-ring)] p-2 rounded-md"
                   >
                     <MenuIcon/>
                   </button>
@@ -201,7 +207,7 @@ const page: React.FC = () => {
 
           {isMobileMenuOpen && (
               <div className="md:hidden bg-[var(--color-bg-header)] ">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="px-2 pt-5  pb-3 space-y-1 sm:px-3">
                   {navLinks.map(link => (
                       <a key={link.href} href={link.href}
                          className="text-[var(--color-text-default)] hover:bg-[var(--color-bg-hover-light)] hover:text-[var(--color-text-highlight)] block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
@@ -251,20 +257,24 @@ const page: React.FC = () => {
           </div>
         </div>
         <div id="tilt-box-red-top"/>
-
         {/* Image Gallery Section */}
         <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
                 className="relative w-full max-w-3xl mx-auto h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
               {galleryImages.map((src, index) => (
-                  <img
+                  <div
                       key={src}
-                      src={src}
-                      alt={`Gallery image ${index + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-                      onError={(e) => (e.currentTarget.src = "https://placehold.co/600x400/CCCCCC/FFFFFF?text=Image+Not+Found")}
-                  />
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+                  >
+                    <Image
+                        src={src}
+                        alt={`Galerij afbeelding ${index + 1} van de schilderschool`}
+                        layout="fill"
+                        objectFit="cover"
+                        priority={index === 0} // Laad de eerste afbeelding met prioriteit
+                    />
+                  </div>
               ))}
             </div>
             <div className="flex justify-center mt-4">
@@ -287,7 +297,7 @@ const page: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="md:w-1/2 ml-30">
                 <img
-                    src="https://placehold.co/600x400/4A5568/FFFFFF?text=Artist+Sketching"
+                    src="/gallery/drawing-study.jpg"
                     alt="Artist sketching"
                     className="rounded-lg shadow-xl w-full h-auto object-cover"
                     onError={(e) => (e.currentTarget.src = "https://placehold.co/600x400/CCCCCC/FFFFFF?text=Image+Not+Found")}
@@ -321,16 +331,16 @@ const page: React.FC = () => {
                 <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-6 text-center">Les Tijden</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
-                    <span className="text-lg text-[var(--color-text-muted)]">Woensdag Avond:</span>
-                    <span className="text-lg font-medium text-[var(--color-text-highlight)]">19:00 - 21:00</span>
+                    <span className="text-lg text-[var(--color-bg-header)]">Woensdag Avond:</span>
+                    <span className="text-lg font-medium text-[var(--color-bg-header)]">19:00 - 21:00</span>
                   </div>
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
-                    <span className="text-lg text-[var(--color-text-muted)]">Vrijdag Avond:</span>
-                    <span className="text-lg font-medium text-[var(--color-text-highlight)]">19:00 - 21:30</span>
+                    <span className="text-lg text-[var(--color-bg-header)]">Vrijdag Avond:</span>
+                    <span className="text-lg font-medium text-[var(--color-bg-header)]">19:00 - 21:30</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-lg text-[var(--color-text-muted)]">Zaterdag Ochtend:</span>
-                    <span className="text-lg font-medium text-[var(--color-text-highlight)]">9:00 - 11:30</span>
+                    <span className="text-lg text-[var(--color-bg-header)]">Zaterdag Ochtend:</span>
+                    <span className="text-lg font-medium text-[var(--color-bg-header)]">9:00 - 11:30</span>
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--color-text-subtle)] text-center">
