@@ -328,7 +328,7 @@ const page: React.FC = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               <div className="bg-[var(--color-bg-section-medium)] p-6 sm:p-8 ml-32 rounded-lg shadow-xl">
-                <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-6 text-center">Les Tijden</h3>
+                <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-6 text-center">Lestijden</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
                     <span className="text-lg text-[var(--color-bg-header)]">Woensdag Avond:</span>
