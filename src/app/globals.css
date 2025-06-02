@@ -192,3 +192,11 @@ body {
     transform: translateX(0); /* End position (move left by width of ONE span) */
   }
 }
+
+.tilt-on-hover img {
+   transition: transform 0.3s ease-in-out;
+}
+
+.tilt-on-hover:hover img {
+    transform: rotate(-3deg) scale(1.05);
+}

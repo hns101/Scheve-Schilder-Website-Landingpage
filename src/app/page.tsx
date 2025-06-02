@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import Head from 'next/head'
 
-
-// Icons - Lucide React (or similar SVG icons)
 const MenuIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <line x1="3" y1="12" x2="21" y2="12" />
@@ -65,7 +63,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex justify-between items-center w-full text-left text-lg text-[var(--color-text-default)] hover:text-[#e3e3e3] transition-colors duration-300"
         >
-          {/* De vraag wordt nu alleen dikgedrukt als hij open is */}
           <span className={`pr-4 ${isOpen ? 'font-bold' : ''}`}>
             {question}
           </span>
@@ -73,7 +70,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             <ChevronDownIcon />
           </div>
         </button>
-        {/* De kleur van de antwoordtekst is hier aangepast */}
         {isOpen && <div className="mt-4 text-[var(--color-text-default)] pr-6 space-y-3">{answer}</div>}
       </div>
   );
@@ -94,7 +90,7 @@ const page: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
     return () => clearInterval(timer);
   }, [galleryImages.length]);
 
@@ -174,33 +170,23 @@ const page: React.FC = () => {
 
         {/* Header */}
         <header className=" sticky top-0 z-50 ">
-
           <div className="bg-[var(--color-bg-header)] bg-opacity-80">
-
-            {/* Apply flex and justify-between here */}
-            <div
-                className="container mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16"> {/* <-- MODIFIED LINE */}
-
-              {/* 1. Logo (Stays on the Left) */}
+            <div className="container mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16">
               <div className="flex-shrink-0 relative z-20">
                 <img className="h-32 pt-7 -rotate-2 " src="/Schilderschoolwit.png"
                      alt="Schilderschool De Scheve Scheve Schilder"/>
               </div>
 
-              {/* 2. Container for Right-Side Elements */}
-              <div className="flex items-center"> {/* <-- NEW WRAPPER */}
-
-                {/* Desktop Navigation (Pushed to the Right) */}
+              <div className="flex items-center">
                 <nav className="hidden md:flex space-x-4 ">
                   {navLinks.map(link => (
                       <a key={link.href} href={link.href}
-                         className="text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                         className="relative text-[var(--color-text-default)] hover:text-[var(--color-text-highlight)] px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-[2px] after:bg-[var(--color-text-highlight)] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">
                         {link.text}
                       </a>
                   ))}
                 </nav>
 
-                {/* Mobile Menu Button (Pushed to the Right) */}
                 <div className="md:hidden">
                   <button
                       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -209,17 +195,10 @@ const page: React.FC = () => {
                     <MenuIcon/>
                   </button>
                 </div>
-
               </div>
-              {/* <-- End of NEW WRAPPER */}
-
             </div>
-            {/* <-- Close flex container */}
-
           </div>
-          {/* <-- Close background div */}
 
-          {/* Mobile Menu (This structure looks fine, it appears below when open) */}
           {isMobileMenuOpen && (
               <div className="md:hidden bg-[var(--color-bg-header)] ">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -232,33 +211,15 @@ const page: React.FC = () => {
                 </div>
               </div>
           )}
-          {/* Your tilt box (Assuming it stays here) */}
           <div id="tilt-box" className="mb-2"></div>
         </header>
 
         {/* Hero Section */}
-
         <section id="hero-banner" className="relative py-0 md:py-0 bg-[var(--color-bg-body)] overflow-hidden pt-0">
-          <div className="absolute inset-0 opacity-10">
-            {/*<img src="https://placehold.co/1920x1080/334155/475569?text=Paint+Texture" alt="Paint Texture Background"*/}
-            {/* className="w-full h-full object-cover"/>*/}
-          </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex-col ">
-            {/*<h1 className="text-sm sm:text-base text-[var(--color-bg-header)] uppercase tracking-wider font-semibold">*/}
-            {/* - SCHILDERSCHOOL -*/}
-            {/*</h1>*/}
-            {/*<p className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--color-bg-header)] leading-tight">*/}
-            {/* De Scheve Schilder*/}
-            {/*</p>*/}
-
-            <div className="flex justify-center items-center h-[45vh] mt-10">
+            <div className="flex justify-center items-center h-[45vh] mt-10 tilt-on-hover">
               <img className="max-h-full" src="/scheveschildersign.png" alt="Scheve Schilder Sign"/>
             </div>
-            {/* To make the <p> take up the full width, remove max-w-2xl and mx-auto */}
-
-            {/*<p className="mt-6 py-4 pb-32 -mb-21 bg-[var(--line-background-color)] text-xl font-bold sm:text-2xl text-[var(--color-text-default)] w-screen relative left-1/2 -translate-x-1/2 z-0">*/}
-            {/* Iedereen kan leren Tekenen & Schilderen️*/}
-            {/*</p>*/}
             <div className="mt-10">
               <a
                   href="#inschrijven"
@@ -268,27 +229,30 @@ const page: React.FC = () => {
               </a>
             </div>
           </div>
-
         </section>
+
         <div id="tilt-box-black-top"/>
         <div className="marquee-wrapper">
           <div className="marquee-container">
             <div className="marquee-content">
-      <span>
-        Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
-          className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
-          className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
-          className="highlight">Tekenen & Schilderen</strong>   </span>
               <span>
-        Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
                   className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
                   className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
-                  className="highlight">Tekenen & Schilderen</strong>   </span>
+                  className="highlight">Tekenen & Schilderen</strong>  
+              </span>
+              <span>
+                Tekenen & Schilderen <strong className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong> Tekenen & Schilderen <strong
+                  className="highlight">Tekenen & Schilderen</strong>  
+              </span>
             </div>
           </div>
         </div>
-        {/* Image Gallery Section */}
         <div id="tilt-box-red-top"/>
+
+        {/* Image Gallery Section */}
         <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
@@ -353,7 +317,6 @@ const page: React.FC = () => {
         <section className="py-16 pb-0 bg-[var(--color-bg-section-blue)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              {/* Class Times */}
               <div className="bg-[var(--color-bg-section-medium)] p-6 sm:p-8 ml-32 rounded-lg shadow-xl">
                 <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-6 text-center">Les Tijden</h3>
                 <div className="space-y-4">
@@ -373,7 +336,6 @@ const page: React.FC = () => {
                 <p className="mt-6 text-sm text-[var(--color-text-subtle)] text-center">
                   Locatie: Cultuurhuis De Kolk (ruimte 2), Weereweg 32, Lutjewinkel
                 </p>
-
               </div>
 
               <div className="rounded-lg shadow-xl overflow-hidden h-80 md:h-full mr-32">
@@ -389,7 +351,6 @@ const page: React.FC = () => {
                     className="w-full h-full"
                 ></iframe>
               </div>
-
             </div>
           </div>
           <div id="tilt-box-white"/>
@@ -463,7 +424,7 @@ const page: React.FC = () => {
                          className="hover:text-[var(--color-text-highlight)] transition-colors">Lesprogramma</a></li>
                   <li><a href="#inschrijven"
                          className="hover:text-[var(--color-text-highlight)] transition-colors">Inschrijven</a></li>
-                  </ul>
+                </ul>
               </div>
               <div>
                 <h5 className="text-xl font-semibold text-[var(--color-text-default)] mb-4">Contact</h5>
@@ -473,14 +434,13 @@ const page: React.FC = () => {
                   </li>
                   <li className="flex items-center"><PhoneIcon/> <span className="ml-2"><a
                       href="https://api.whatsapp.com/send/?phone=031610910012&text&type=phone_number&app_absent=0"
-                                                                                           className="hover:text-[var(--color-text-highlight)]">06 10910012</a></span>
+                      className="hover:text-[var(--color-text-highlight)]">06 10910012</a></span>
                   </li>
                   <li className="flex items-center"><MailIcon/> <span className="ml-2"><a
                       href="mailto:info@scheveschilder.nl"
                       className="hover:text-[var(--color-text-highlight)]">info@scheveschilder.nl</a></span>
                   </li>
                   <li className="flex items-center"><span className="ml-8">KVK : 89240626</span></li>
-
                 </ul>
               </div>
             </div>
