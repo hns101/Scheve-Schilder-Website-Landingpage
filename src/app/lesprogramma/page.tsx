@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Link component geïmporteerd
 import Header from '../components/Header'; // Pas pad aan indien nodig
 import Footer from '../components/Footer'; // Pas pad aan indien nodig
 
@@ -125,12 +126,14 @@ const LesprogrammaPage: React.FC = () => {
                         </div>
 
                         <div className="text-center mt-12">
-                            <a
-                                href="#inschrijven" // Link naar de inschrijfsectie op de homepage of een aparte inschrijfpagina
-                                className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
-                            >
-                                Schrijf je nu in!
-                            </a>
+                            {/* AANGEPASTE LINK HIERONDER */}
+                            <Link href="/inschrijven" legacyBehavior>
+                                <a
+                                    className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
+                                >
+                                    Schrijf je nu in!
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

@@ -1,7 +1,8 @@
 "use client"
 import React from 'react';
+import Link from 'next/link'; // Link component geïmporteerd
 
-
+// Iconen
 const PhoneIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-whatsapp"
          viewBox="0 0 16 16">
@@ -24,10 +25,11 @@ const MapPinIcon = () => (
     </svg>
 );
 
+// AANGEPASTE footerNavLinks met correcte paginapaden
 const footerNavLinks = [
-    { href: "#school", text: "Over Ons" },
-    { href: "#programma", text: "Lesprogramma" },
-    { href: "#inschrijven", text: "Inschrijven" },
+    { href: "/", text: "Schilderschool" }, // Verwijst nu naar de homepage
+    { href: "/lesprogramma", text: "Lesprogramma" },
+    { href: "/inschrijven", text: "Inschrijven" },
 ];
 
 const Footer: React.FC = () => {
@@ -43,30 +45,53 @@ const Footer: React.FC = () => {
                         <h5 className="text-xl font-semibold text-[var(--color-text-default)] mb-4">Snelle Links</h5>
                         <ul className="space-y-2 text-sm">
                             {footerNavLinks.map(link => (
-                                <li key={link.text}><a href={link.href} className="hover:text-[var(--color-text-highlight)] transition-colors">{link.text}</a></li>
+                                <li key={link.text}>
+                                    {/* Gebruik van Next.js Link component */}
+                                    <Link href={link.href} legacyBehavior>
+                                        <a className="hover:text-[var(--color-text-highlight)] transition-colors">
+                                            {link.text}
+                                        </a>
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                     </div>
                     <div>
                         <h5 className="text-xl font-semibold text-[var(--color-text-default)] mb-4">Contact</h5>
                         <ul className="space-y-2 text-sm">
-                            <li className="flex items-center"><MapPinIcon/> <span className="ml-2"><a href="https://maps.app.goo.gl/Fx6HfjvAQcmjoewBA"
-                                                                                                      className="hover:text-[var(--color-text-highlight)]">Weereweg 32, Lutjewinkel<br/> CultuurHuis De Kolk (Ruimte 2)</a></span>
+                            <li className="flex items-center">
+                                <MapPinIcon/>
+                                <span className="ml-2">
+                                    <a href="https://maps.app.goo.gl/Fx6HfjvAQcmjoewBA" // Overweeg dit ook een Link te maken als het een interne pagina is, of laat als externe link
+                                       className="hover:text-[var(--color-text-highlight)]">
+                                        Weereweg 32, Lutjewinkel<br/> CultuurHuis De Kolk (Ruimte 2)
+                                    </a>
+                                </span>
                             </li>
-                            <li className="flex items-center"><PhoneIcon/> <span className="ml-2"><a
-                                href="https://api.whatsapp.com/send/?phone=031610910012&text&type=phone_number&app_absent=0"
-                                className="hover:text-[var(--color-text-highlight)]">06 10910012</a></span>
+                            <li className="flex items-center">
+                                <PhoneIcon/>
+                                <span className="ml-2">
+                                    <a href="https://api.whatsapp.com/send/?phone=031610910012&text&type=phone_number&app_absent=0"
+                                       className="hover:text-[var(--color-text-highlight)]">
+                                        06 10910012
+                                    </a>
+                                </span>
                             </li>
-                            <li className="flex items-center"><MailIcon/> <span className="ml-2"><a
-                                href="mailto:info@scheveschilder.nl"
-                                className="hover:text-[var(--color-text-highlight)]">info@scheveschilder.nl</a></span>
+                            <li className="flex items-center">
+                                <MailIcon/>
+                                <span className="ml-2">
+                                    <a href="mailto:info@scheveschilder.nl"
+                                       className="hover:text-[var(--color-text-highlight)]">
+                                        info@scheveschilder.nl
+                                    </a>
+                                </span>
                             </li>
                             <li className="flex items-center"><span className="ml-8">KVK : 89240626</span></li>
                         </ul>
                     </div>
                 </div>
                 <div className="mt-8 border-t border-[var(--color-border-default)] pt-8 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} SchilderSchool De Scheve Schilder</p>
+                    <p>© {new Date().getFullYear()} SchilderSchool De Scheve Schilder</p>
                 </div>
             </div>
         </footer>

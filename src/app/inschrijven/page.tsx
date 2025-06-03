@@ -59,7 +59,7 @@ const InschrijvenPage: React.FC = () => {
                             Schrijf je in!
                         </h1>
                         <p className="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
-                            Start jouw creatieve reis bij De Scheve Schilder. We kijken ernaar uit je te verwelkomen!
+                            Start jouw creatieve reis bij De Scheve Schilder!
                         </p>
                     </div>
                 </section>
