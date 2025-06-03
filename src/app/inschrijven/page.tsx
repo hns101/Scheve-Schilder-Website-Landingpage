@@ -1,12 +1,11 @@
-// app/inschrijven/page.tsx (of pages/inschrijven.tsx)
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import Header from '../components/Header'; // Pas pad aan indien nodig
-import Footer from '../components/Footer'; // Pas pad aan indien nodig
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
-// Iconen - je kunt deze later centraliseren in een apart bestand
+// Iconen
 const MailIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -41,18 +40,16 @@ const InschrijvenPage: React.FC = () => {
             <Header/>
 
             <main>
-                {/* Hero Sectie voor Inschrijven */}
                 <section className="relative -mt-10 py-20 md:py-32 bg-[var(--color-bg-section-dark)] text-center">
                     <div className="absolute inset-0 opacity-30">
                         <Image
-                            src="/gallery/drawing-study.jpg" // Vervang met een passende achtergrondafbeelding
+                            src="/gallery/drawing-study.jpg"
                             alt="Achtergrond inschrijfpagina"
                             layout="fill"
                             objectFit="cover"
                         />
                     </div>
                     <div className="absolute inset-0 bg-black opacity-50"></div>
-                    {/* Donkere overlay */}
 
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
@@ -63,7 +60,6 @@ const InschrijvenPage: React.FC = () => {
                         </p>
                     </div>
                 </section>
-                {/* Neem een gratis proefles Sectie */}
                 <section className="py-16 bg-[var(--color-bg-section-medium)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl font-bold text-[var(--color-bg-header)] sm:text-4xl mb-6">
@@ -84,7 +80,7 @@ const InschrijvenPage: React.FC = () => {
                                 <MailIcon/> Mail ons
                             </a>
                             <a
-                                href="https://api.whatsapp.com/send/?phone=31610910012&text=Hallo,%20ik%20heb%20interesse%20in%20een%20gratis%20proefles." // Correcte WhatsApp nummer
+                                href="https://api.whatsapp.com/send/?phone=31610910012&text=Hallo,%20ik%20heb%20interesse%20in%20een%20gratis%20proefles."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
@@ -97,7 +93,6 @@ const InschrijvenPage: React.FC = () => {
 
                 <div id="tilt-box-blue" className="mb-0"></div>
 
-                {/* Wat kosten de Lessen? Sectie */}
                 <section className="py-16 bg-[var(--color-bg-section-blue)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold text-white sm:text-4xl text-center mb-10">
@@ -142,19 +137,13 @@ const InschrijvenPage: React.FC = () => {
                     </div>
                 </section>
 
-
-                {/* Waar is het precies? Sectie */}
                 <section className="py-16 bg-[var(--color-bg-section-medium)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold text-[var(--color-bg-header)] sm:text-4xl text-center mb-10">
                             Waar Vind Je Ons?
                         </h2>
-                        {/* Hoofd container met nu twee kolommen: 1 voor kaarten, 1 voor tekst */}
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
-
-                            {/* Kolom 1: Bevat de twee verticaal gestapelde kaarten */}
-                            <div className="lg:w-1/2 flex flex-col gap-8 w-full"> {/* 'w-full' toegevoegd voor consistentie op mobiel */}
-                                {/* De bovenste kaart, nu met een kleinere hoogte */}
+                            <div className="lg:w-1/2 flex flex-col gap-8 w-full">
                                 <div className="rounded-lg shadow-xl overflow-hidden h-64">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36849.631355420934!2d4.871224408928847!3d52.76585412731378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf527e0cc1b847%3A0x5d9b8f28ecd69cca!2sCultuurHuis%20De%20Kolk!5e0!3m2!1sen!2snl!4v1748944165780!5m2!1sen!2snl"
@@ -167,8 +156,6 @@ const InschrijvenPage: React.FC = () => {
                                         title="Omgevingsfoto van de locatie">
                                     </iframe>
                                 </div>
-
-                                {/* De onderste, grotere kaart */}
                                 <div className="rounded-lg shadow-xl overflow-hidden h-96">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!4v1748765405671!6m8!1m7!1svic1ch9VXt-XXkBcofWzvA!2m2!1d52.76878390910724!2d4.883859254183673!3f53.6922652442899!4f6.295963732094151!5f1.5370213448934535"
@@ -182,9 +169,7 @@ const InschrijvenPage: React.FC = () => {
                                     ></iframe>
                                 </div>
                             </div>
-
-                            {/* Kolom 2: Bevat de tekstinformatie en de parkeerafbeelding */}
-                            <div className="lg:w-1/2 w-full"> {/* 'w-full' toegevoegd voor consistentie op mobiel */}
+                            <div className="lg:w-1/2 w-full">
                                 <div
                                     className="bg-white p-6 rounded-lg shadow-lg text-[var(--color-bg-header)]">
                                     <h3 className="text-2xl font-semibold text-[var(--color-bg-header)] mb-3">CultuurHuis
@@ -198,7 +183,7 @@ const InschrijvenPage: React.FC = () => {
 
                                     <div className="mt-6 flex flex-col items-center w-full">
                                         <Image
-                                            src="/gallery/parkerenkolk.jpg" // Zorg dat dit pad correct is naar uw afbeelding
+                                            src="/gallery/parkerenkolk.jpg"
                                             alt="Plattegrond parkeren Cultuurhuis De Kolk"
                                             width={400}
                                             height={300}
@@ -211,23 +196,17 @@ const InschrijvenPage: React.FC = () => {
                     </div>
                 </section>
                 <div id="tilt-box-brown" className="mb-0"></div>
-
-                {/* Inschrijfformulier Sectie */}
                 <section className="py-16 bg-[var(--color-bg-section-light-brown)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl font-bold text-[var(--color-text-default)] sm:text-4xl mb-6">
                             Rustig even ons inschrijfformulier doornemen
                         </h2>
-
-                        {/* De afbeelding heeft nu klassen voor centreren en responsieve grootte */}
                         <Image
                             src="/gallery/Lidmaatschap-inschrijvingsformulier-1.4.jpg"
                             alt="Inschrijvingsformulier"
                             height={1500}
                             width={700}
                             className="rounded-lg shadow-xl mb-8 mx-auto w-full max-w-md lg:max-w-3xl"/>
-
-                        {/* De ml-4 is verwijderd van de knop zodat deze centreert */}
                         <a
                             href="/gallery/Lidmaatschap-inschrijvingsformulier-1.4.pdf"
                             download
@@ -237,9 +216,7 @@ const InschrijvenPage: React.FC = () => {
                         </a>
                     </div>
                 </section>
-
             </main>
-
             <Footer/>
         </div>
     );

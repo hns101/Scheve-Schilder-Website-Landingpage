@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import Link from 'next/link'; // Link component geïmporteerd
+import Link from 'next/link';
 
 // Iconen
 const PhoneIcon = () => (
@@ -25,9 +25,9 @@ const MapPinIcon = () => (
     </svg>
 );
 
-// AANGEPASTE footerNavLinks met correcte paginapaden
+
 const footerNavLinks = [
-    { href: "/", text: "Schilderschool" }, // Verwijst nu naar de homepage
+    { href: "/", text: "Schilderschool" },
     { href: "/lesprogramma", text: "Lesprogramma" },
     { href: "/inschrijven", text: "Inschrijven" },
 ];
@@ -46,7 +46,6 @@ const Footer: React.FC = () => {
                         <ul className="space-y-2 text-sm">
                             {footerNavLinks.map(link => (
                                 <li key={link.text}>
-                                    {/* Gebruik van Next.js Link component */}
                                     <Link href={link.href} legacyBehavior>
                                         <a className="hover:text-[var(--color-text-highlight)] transition-colors">
                                             {link.text}
@@ -62,8 +61,7 @@ const Footer: React.FC = () => {
                             <li className="flex items-center">
                                 <MapPinIcon/>
                                 <span className="ml-2">
-                                    <a href="https://maps.app.goo.gl/Fx6HfjvAQcmjoewBA" // Overweeg dit ook een Link te maken als het een interne pagina is, of laat als externe link
-                                       className="hover:text-[var(--color-text-highlight)]">
+                                    <a href="https://maps.app.goo.gl/Fx6HfjvAQcmjoewBA" className="hover:text-[var(--color-text-highlight)]">
                                         Weereweg 32, Lutjewinkel<br/> CultuurHuis De Kolk (Ruimte 2)
                                     </a>
                                 </span>

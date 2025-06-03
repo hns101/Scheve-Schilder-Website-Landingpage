@@ -1,11 +1,10 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Link component geïmporteerd
-import Header from '../components/Header'; // Pas pad aan indien nodig
-import Footer from '../components/Footer'; // Pas pad aan indien nodig
+import Link from 'next/link';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-// Icoon voor de lijstitems (kan ook uit een gedeeld iconenbestand komen)
 const ChevronRightIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block h-4 w-4 mr-2 text-[var(--color-text-highlight)]">
@@ -21,19 +20,17 @@ const LesprogrammaPage: React.FC = () => {
             <Header />
 
             <main>
-                {/* Hero Sectie voor Lesprogramma */}
+                {/* Hero */}
                 <section className="relative -mt-10 py-20 md:py-32 bg-[var(--color-bg-section-blue)] text-center">
-                    {/* Optionele achtergrondafbeelding met overlay */}
                     <div className="absolute inset-0 opacity-30">
                         <Image
-                            src="/gallery/scheve-studio.jpg" // Vervang met een relevante achtergrondafbeelding
+                            src="/gallery/scheve-studio.jpg"
                             alt="Achtergrond lesprogramma"
                             layout="fill"
                             objectFit="cover"
                         />
                     </div>
-                    <div className="absolute inset-0 bg-[var(--color-bg-section-blue)] opacity-40"></div> {/* Donkere overlay */}
-
+                    <div className="absolute inset-0 bg-[var(--color-bg-section-blue)] opacity-40"></div>
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
                             Lesprogramma {currentYear}
@@ -44,16 +41,16 @@ const LesprogrammaPage: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Over de Lessen Sectie (vergelijkbaar met de homepage) */}
+                {/* Over de Lessen */}
                 <section className="py-16 bg-[var(--color-bg-section-medium)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
                             <div className="lg:w-2/5">
                                 <Image
-                                    src="/gallery/drawing-bargue.jpg" // Vervang met een relevante afbeelding
+                                    src="/gallery/drawing-bargue.jpg"
                                     alt="Detail van een tekenles"
                                     width={600}
-                                    height={450} // Pas aan naar de verhouding van je afbeelding
+                                    height={450}
                                     className="rounded-lg shadow-xl w-full h-auto"
                                 />
                             </div>
@@ -81,7 +78,7 @@ const LesprogrammaPage: React.FC = () => {
 
                 <div id="tilt-box-brown" className="mb-0"></div>
 
-                {/* Het Lesprogramma Sectie - AANGEPAST */}
+                {/* Het Lesprogramma */}
                 <section className="py-16 bg-[var(--color-bg-section-light-brown)]">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold text-[var(--color-text-default)] sm:text-4xl text-center mb-12">
@@ -126,12 +123,9 @@ const LesprogrammaPage: React.FC = () => {
                         </div>
 
                         <div className="text-center mt-12">
-                            {/* AANGEPASTE LINK HIERONDER */}
                             <Link href="/inschrijven" legacyBehavior>
-                                <a
-                                    className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
-                                >
-                                    Schrijf je nu in!
+                                <a className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
+                                >Schrijf je nu in!
                                 </a>
                             </Link>
                         </div>

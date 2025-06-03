@@ -59,9 +59,9 @@ const page: React.FC = () => {
     "/gallery/meester-study.jpg",
     "/gallery/gezichten-tekenen.jpg",
     "/gallery/monkey-study.jpg",
-    "/gallery/hond.jpg",
-    "/gallery/bloem-study.jpg",
-    "/gallery/glas-study.jpg",
+    // "/gallery/hond.jpg",
+    // "/gallery/bloem-study.jpg",
+    // "/gallery/glas-study.jpg",
   ];
 
   useEffect(() => {
@@ -182,7 +182,7 @@ const page: React.FC = () => {
         <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
-                className="relative w-full max-w-3xl mx-auto h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
+                className="relative w-full max-w-3xl mx-auto h-100 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
               {galleryImages.map((src, index) => (
                   <div
                       key={src}

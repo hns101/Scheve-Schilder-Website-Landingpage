@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en">
+      <html lang="nl">
       <link rel="icon" type="image/svg+xml" href="/ScheveSchilder-lcon.svg"/>
       <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
