@@ -90,13 +90,14 @@ const LesprogrammaPage: React.FC = () => {
                                 <h3 className="text-2xl font-semibold text-[var(--color-text-highlight)] mb-3">Lessen:</h3>
                                 <ul className="space-y-2 list-inside">
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 2 t/m 26
+                                        <ChevronRightIcon/> Week 2 t/m 26
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 28 t/m 32 <span className="text-sm inline-block text-[var(--color-text-muted)]">(Let op: de lessen lopen een week langer door in augustus, omdat de eerste week van juli gesloten is)</span>
+                                        <ChevronRightIcon/> Week 28 t/m 32 <span
+                                        className="text-sm inline-block text-[var(--color-text-muted)]">(Let op: de lessen lopen een week langer door in augustus, omdat de eerste week van juli gesloten is)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 36 t/m 50
+                                        <ChevronRightIcon/> Week 36 t/m 50
                                     </li>
                                 </ul>
                             </div>
@@ -106,13 +107,15 @@ const LesprogrammaPage: React.FC = () => {
                                 <h3 className="text-2xl font-semibold text-[var(--color-text-highlight)] mb-3">Gesloten:</h3>
                                 <ul className="space-y-2 list-inside">
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 1
+                                        <ChevronRightIcon/> Week 1
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 27 <span className="text-sm text-[var(--color-text-muted)]">(eerste week van juli)</span>
+                                        <ChevronRightIcon/> Week 27 <span
+                                        className="text-sm text-[var(--color-text-muted)]">(eerste week van juli)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon /> Week 33 t/m 35 <span className="text-sm text-[var(--color-text-muted)]">(augustus)</span>
+                                        <ChevronRightIcon/> Week 33 t/m 35 <span
+                                        className="text-sm text-[var(--color-text-muted)]">(augustus)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
                                         <ChevronRightIcon/> Week 51 & 52 <span
@@ -123,17 +126,18 @@ const LesprogrammaPage: React.FC = () => {
                         </div>
 
                         <div className="text-center mt-12">
-                            <Link href="/inschrijven" legacyBehavior>
-                                <a className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
-                                >Schrijf je nu in!
-                                </a>
+                            <Link
+                                href="/inschrijven"
+                                className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
+                            >
+                                Schrijf je nu in!
                             </Link>
                         </div>
                     </div>
                 </section>
             </main>
 
-            <Footer />
+            <Footer/>
         </div>
     );
 };
