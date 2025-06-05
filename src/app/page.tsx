@@ -1,7 +1,7 @@
-// page.tsx
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import for Next.js Link component
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -236,10 +236,11 @@ const page: React.FC = () => {
                   groep van maximaal 10 leerlingen de fijne kneepjes van het vak. We werken met diverse materialen en
                   technieken. Je krijgt individuele begeleiding en werkt op je eigen tempo aan je eigen creaties.
                 </p>
-                <a href="#programma"
-                   className="mt-8 inline-block text-[var(--color-text-highlight)] font-semibold hover:text-[var(--color-text-highlight-hover)] transition-colors duration-300 text-lg">
+                {/* MODIFIED LINK BELOW */}
+                <Link href="/lesprogramma"
+                      className="mt-8 inline-block text-[var(--color-text-highlight)] font-semibold hover:text-[var(--color-text-highlight-hover)] transition-colors duration-300 text-lg">
                   Bekijk ons lesprogramma <ChevronRightIcon/>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
