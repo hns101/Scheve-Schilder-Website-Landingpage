@@ -150,7 +150,7 @@ const page: React.FC = () => {
             <div className="mt-4"> {/* This is the container for your button */}
               <a
                   href="#inschrijven"
-                  className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
+                  className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] mb-3 font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
               >
                 Start je creatieve reis
               </a>
