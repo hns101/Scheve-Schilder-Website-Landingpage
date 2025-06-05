@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+*{  /*reset css*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
   --background: #e6e8ea;
   --foreground: #171717;
