@@ -144,10 +144,10 @@ const page: React.FC = () => {
         {/* Hero Section */}
         <section id="hero-banner" className="relative py-0 md:py-0 bg-[var(--color-bg-body)] overflow-hidden pt-0">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex-col ">
-            <div className="flex justify-center items-center h-[45vh] mt-10 tilt-on-hover">
+            <div className="flex justify-center items-center h-[30vh] mt-8 md:h-[45vh] md:mt-10 tilt-on-hover">
               <img className="max-h-full" src="/scheveschildersign.png" alt="Scheve Schilder Sign"/>
             </div>
-            <div className="mt-10">
+            <div className="mt-4"> {/* This is the container for your button */}
               <a
                   href="#inschrijven"
                   className="inline-block bg-[var(--color-button-primary-bg)] text-[var(--color-text-on-button)] font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[var(--color-button-primary-bg-hover)] transition-colors duration-300 text-lg"
@@ -182,7 +182,8 @@ const page: React.FC = () => {
         <section id="school" className="py-16 pb-0 bg-[var(--color-bg-section-dark)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div
-                className="relative w-full max-w-3xl mx-auto h-100 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl">
+                className="relative w-full max-w-3xl mx-auto h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-2xl"
+            >
               {galleryImages.map((src, index) => (
                   <div
                       key={src}
@@ -192,7 +193,7 @@ const page: React.FC = () => {
                         src={src}
                         alt={`Galerij afbeelding ${index + 1} van de schilderschool`}
                         layout="fill"
-                        objectFit="cover"
+                        objectFit="cover" // Keep cover, but the container is now taller on mobile
                         priority={index === 0}
                     />
                   </div>

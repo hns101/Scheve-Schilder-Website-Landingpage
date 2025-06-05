@@ -25,14 +25,24 @@ const Header: React.FC = () => {
         setIsMobileMenuOpen(false);
     };
 
+    // Define base classes for the logo that always apply
+    const logoBaseClasses = "-rotate-2";
+    // Conditionally define size and padding classes for the logo
+    const logoDynamicClasses = isMobileMenuOpen
+        ? "h-20 pt-4"  // Smaller height and padding when menu is open
+        : "h-32 pt-7"; // Original height and padding when menu is closed
+
     return (
         <header className="sticky top-0 z-50 ">
 
             <div className="relative z-10 bg-[var(--color-bg-header)] bg-opacity-80 backdrop-blur-sm">
                 <div className="container mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                     <div className="flex-shrink-0 relative z-20">
-                        <img className="h-32 pt-7 -rotate-2 " src="/Schilderschoolwit.png"
-                             alt="Schilderschool De Scheve Schilder Logo"/>
+                        <img
+                            className={`transition-all duration-300 ${logoBaseClasses} ${logoDynamicClasses}`} // Combined classes
+                            src="/Schilderschoolwit.png"
+                            alt="Schilderschool De Scheve Schilder Logo"
+                        />
                     </div>
 
                     <div className="flex items-center">
@@ -66,9 +76,10 @@ const Header: React.FC = () => {
                 </div>
             </div>
 
+            {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div id="mobile-menu" className="relative z-40 md:hidden bg-[var(--color-bg-header)] bg-opacity-95">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div id="mobile-menu" className="relative z-40 md:hidden bg-[var(--color-bg-header)] bg-opacity-95"> {/* NOTE: This div might still need margin-top to avoid overlapping the (now potentially smaller) logo */}
+                    <div className="px-2 pt-4 pb-3 space-y-1 sm:px-3"> {/* The pt-8 here positions links within this menu's background */}
                         {navLinks.map(link => {
                             const isActive = pathname === link.href;
                             return (

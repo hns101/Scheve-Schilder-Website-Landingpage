@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-*{  /*reset css*/
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
   --background: #e6e8ea;
   --foreground: #171717;
@@ -76,7 +70,7 @@ body {
   width: 100%;
   display: block; /* Ensure it's treated as a block */
   /* << --- KEY CHANGE: Standardized overlap method */
-  margin: 0 0 -1px 0;
+  margin: 0 0 0 0;
   padding: 0;
   line-height: 0; /* Helps prevent accidental height issues */
   position: relative; /* Good practice for positioning context if needed later */
@@ -103,6 +97,7 @@ body {
   /* REMOVED the -64px margin. We're using -1px now. */
   /* If #tilt-box-white needs a different margin, adjust here, */
   /* but start with -1px. */
+  margin-bottom: -0.3px;
 }
 
 /* Slanting Down-Right (Red, Blue, Brown) */
@@ -111,7 +106,8 @@ body {
 #tilt-box-black-top,
 #tilt-box-blue,
 #tilt-box-brown {
-  height: 40px; /* Adjust height if needed */
+  height: 32px; /* Adjust height if needed */
+  margin-bottom: -0.7px;
   clip-path: polygon(0% 100%, 100% 100%, 100% 0);
 }
 
@@ -127,11 +123,12 @@ body {
   background-color: #897b66;
 }
 #tilt-box-red-top {
-  margin-top: -39px;
+  margin-top: -31px;
+  margin-bottom: -2px;
 }
 
 #tilt-box-black-top {
-  margin-top: -39px;
+  margin-top: -39.99px;
   background-color: #222222;
 }
 
@@ -164,7 +161,7 @@ body {
   white-space: nowrap; /* Prevents text from wrapping */
 
   /* Define the animation */
-  animation: scroll-left 80s linear infinite;
+  animation: scroll-left 50s linear infinite;
 }
 
 .marquee-content {
@@ -172,13 +169,28 @@ body {
 }
 
 .marquee-container span {
-  font-size: 4rem; /* Adjust size */
+  font-size: 4em; /* Adjust size */
   font-weight: bold;
   color: #ffffff; /* Lighter blue color */
   text-transform: uppercase;
   padding: 0 1em; /* Add space between 'WE NEED YOU' */
   white-space: nowrap; /* Ensure spans don't wrap internally */
 }
+
+/* Styles for mobile devices */
+@media (max-width: 767px) { /* Or any breakpoint you prefer, e.g., 600px */
+  .marquee-container span {
+    font-size: 2em; /* Significantly smaller font size for mobile */
+    /* You could also adjust padding if needed on smaller screens, e.g.: */
+    /* padding: 0 0.5em; */
+  }
+  .highlight {
+      color: #222222; /* Darker blue color */
+      font-weight: 400;
+      -webkit-text-stroke: 1px white;
+      letter-spacing: 2px;
+
+}}
 
 .marquee-container .highlight {
   color: #222222; /* Darker blue color */
