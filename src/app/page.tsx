@@ -256,7 +256,7 @@ const page: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
                     <span className="text-lg text-[var(--color-bg-header)]">Woensdag Avond:</span>
-                    <span className="text-lg font-medium text-[var(--color-bg-header)]">19:00 - 21:00</span>
+                    <span className="text-lg font-medium text-[var(--color-bg-header)]">19:00 - 21:30</span>
                   </div>
                   <div className="flex justify-between items-center border-b border-[var(--color-border-muted)] pb-3">
                     <span className="text-lg text-[var(--color-bg-header)]">Vrijdag Avond:</span>
