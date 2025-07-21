@@ -90,6 +90,7 @@ body {
 
 #tilt-box {
   background-color: var(--color-bg-header);
+  border-top: 4px solid var(--color-bg-header);
 }
 
 #tilt-box-white {
