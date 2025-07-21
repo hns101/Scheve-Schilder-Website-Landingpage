@@ -64,6 +64,9 @@ body {
 }
 
 /* --- Remove ALL old #tilt-box-* styles first --- */
+#header-background {
+  border-bottom: 4px solid var(--color-bg-header);
+}
 
 /* Base for all tilt boxes */
 #tilt-box, #tilt-box-red, #tilt-box-red-top, #tilt-box-black-top ,#tilt-box-white, #tilt-box-blue, #tilt-box-brown {

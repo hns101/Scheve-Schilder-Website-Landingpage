@@ -35,7 +35,7 @@ const Header: React.FC = () => {
     return (
         <header className="sticky top-0 z-50 ">
 
-            <div className="relative z-10 bg-[var(--color-bg-header)] bg-opacity-80 backdrop-blur-sm">
+            <div id="header-background" className="relative z-10 bg-[var(--color-bg-header)] bg-opacity-80 backdrop-blur-sm">
                 <div className="container mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                     <div className="flex-shrink-0 relative z-20">
                         <img
