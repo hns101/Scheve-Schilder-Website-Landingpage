@@ -15,6 +15,7 @@ const navLinks = [
     { href: "/", text: "Schilderschool" }, // Homepage
     { href: "/inschrijven", text: "Inschrijven" },
     { href: "/lesprogramma", text: "Lesprogramma" },
+    { href: "https://portaal.scheveschilder.nl/login", text: "Ledenportaal" }
 ];
 
 const Header: React.FC = () => {
