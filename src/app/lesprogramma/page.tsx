@@ -97,7 +97,7 @@ const LesprogrammaPage: React.FC = () => {
                                         className="text-sm inline-block text-[var(--color-text-muted)]">(Let op: de lessen lopen een week langer door in augustus, omdat de eerste week van juli gesloten is)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 36 t/m 50
+                                        <ChevronRightIcon/> Week 36 t/m 48 (Maand December zijn we gesloten)
                                     </li>
                                 </ul>
                             </div>
@@ -118,8 +118,8 @@ const LesprogrammaPage: React.FC = () => {
                                         className="text-sm text-[var(--color-text-muted)]">(augustus)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 51 & 52 <span
-                                        className="text-sm text-[var(--color-text-muted)]">(half december)</span>
+                                        <ChevronRightIcon/> Week 48 t/m 52 <span
+                                        className="text-sm text-[var(--color-text-muted)]">(december)</span>
                                     </li>
                                 </ul>
                             </div>
