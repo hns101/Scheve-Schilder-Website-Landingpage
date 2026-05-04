@@ -90,11 +90,7 @@ const LesprogrammaPage: React.FC = () => {
                                 <h3 className="text-2xl font-semibold text-[var(--color-text-highlight)] mb-3">Lessen:</h3>
                                 <ul className="space-y-2 list-inside">
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 2 t/m 26
-                                    </li>
-                                    <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 28 t/m 32 <span
-                                        className="text-sm inline-block text-[var(--color-text-muted)]">(Let op: de lessen lopen een week langer door in augustus, omdat de eerste week van juli gesloten is)</span>
+                                        <ChevronRightIcon/> Week 2 t/m 32 (Maand Augustus zijn we gesloten)
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
                                         <ChevronRightIcon/> Week 36 t/m 48 (Maand December zijn we gesloten)
@@ -110,15 +106,11 @@ const LesprogrammaPage: React.FC = () => {
                                         <ChevronRightIcon/> Week 1
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 27 <span
-                                        className="text-sm text-[var(--color-text-muted)]">(eerste week van juli)</span>
-                                    </li>
-                                    <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 33 t/m 35 <span
+                                        <ChevronRightIcon/> Week 32 t/m 35 <span
                                         className="text-sm text-[var(--color-text-muted)]">(augustus)</span>
                                     </li>
                                     <li className="text-[var(--color-bg-header)]">
-                                        <ChevronRightIcon/> Week 48 t/m 52 <span
+                                        <ChevronRightIcon/> Week 49 t/m 52 <span
                                         className="text-sm text-[var(--color-text-muted)]">(december)</span>
                                     </li>
                                 </ul>
